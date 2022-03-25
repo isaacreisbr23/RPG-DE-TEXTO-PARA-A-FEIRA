@@ -86,10 +86,12 @@ def aventura_comeca():
     term_usr_inpu = input("[*]")
 
     #condição para acordar o player
-    if term_usr_inpu not in "SsimNnãao":
+    if term_usr_inpu not in "SimsimNaoNãonãonao":
         cprint("[*] Você deve digitar Sim ou Não",'red')
         aventura_comeca()
-    elif term_usr_inpu in "Ssim":
+    
+    #CASO O PLAYER SEJA ACORDADO
+    elif term_usr_inpu in "Simsim":
 
         cprint("""[*] Você acorda, se depara com uma figura que não apresenta corpo físico, mesmo assim você a enxerga perfeitamente.
     A voz diz se chamar Estéria [*]""",'green')#narrador
@@ -102,20 +104,26 @@ def aventura_comeca():
         #input para aceitar a MAIN QUEST DO JOGO
         term_usr_inpu_mission_0 = input("[*]")
         #condição MAIN QUEST
-        if term_usr_inpu_mission_0 not in "SsimNnãao":
+        if term_usr_inpu_mission_0 not in "SimsimNnãao":
             cprint("[*] Você deve digitar Sim ou Não",'red')
             aventura_comeca()
-        elif term_usr_inpu_mission_0 in "Ssim":
+        elif term_usr_inpu_mission_0 in "Simsim":
 
             #CASO A MISSAO SEJA ACEITA
             cprint("[*] Você aceitou a missão, Estéria lhe entregou uma espada, um mapa e uma armadura [*]",'blue')
             cprint("[*] Itens guardados no inventário ","yellow")
 
-        elif term_usr_inpu_mission_0 in "Nnão":
+        elif term_usr_inpu_mission_0 in "NaoNãonaonão":
 
             #CASO A MISSAO SEJA RECUSADA
             cprint("[*] Você recusou a missão, provavelmente estava muito cansado para salvar Stone Land","red")
             creditos()
+    
+    #CASO O JOGADOR NAO ACORDE O PLAYER
+    elif term_usr_inpu in "Nãonão":
+        cprint("[*] Você tem um sono muito pesado, isso te impede de viver uma grande aventura","red")
+        creditos()
+        time.sleep(5)
 
 #ignorar por enquanto TESTE DE FEATURE
 def sim_ou_não():
