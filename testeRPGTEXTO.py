@@ -1,10 +1,15 @@
-
 #libs
 from contextlib import nullcontext
 import json  
 import time
 import random
+import termcolor
+import os
 
+try:
+    os.system("color") #inicia o modo de cor do windows
+except:
+    print("color não foi iniciado")
 
 #CORES DOS OUTPUTS DO TERMINAL
 class Cores:
@@ -69,14 +74,14 @@ efct_poison = {
 
 class Enemys():
     morcego = {
-	"nome":"morcego",
+    "nome":"morcego",
         "vida":15,
         "ataque":5,
         "defesa":2,
     }
 
     cobra = {
-	"nome":"cobra",
+    "nome":"cobra",
         "vida":10,
         "ataque":6,
         "defesa":4,
@@ -112,7 +117,7 @@ class Player_decisions():
             fugir_roll = random.choice(var_decis)
 
             if fugir_roll <= 5:
-                print(f'{Cores.azul}[*] Você resolve fugir de forma engraçada {Cores.fimdecor}')
+                print(f'{Cores.amarelo}[*] Você resolve fugir de forma engraçada{Cores.fimdecor}')
             elif fugir_roll >5:
                 print(f'{Cores.vermelho}[*] Você resolve fugir de forma engraçada, mas falha miseravelmente {Cores.fimdecor}')
                 
@@ -249,6 +254,7 @@ def aventura_comeca():
             print(f'{Cores.amarelo}[*] Seu ataque agora é: {Player.player_status["ataque"]} {Cores.fimdecor}') #info ao jogador 
 
             roll_the_big_dice()
+            
 
         elif term_usr_inpu_mission_0 in "NaoNãonaonão":
 
@@ -304,4 +310,3 @@ class game_main():
         #CONTINUAR SAVE (EM BREVE)
     except:
         primeira_vez_jogando() #EXECUTA O JOGO PELA PRIMEIRA VEZ, AJUDA + HISTORIA + TUTORIAL
-
